@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Murray - My Hobbies</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --navy-primary: #0a192f;
+            --navy-secondary: #172a45;
+            --navy-light: #233554;
+            --orange-primary: #ff7b00;
+            --orange-secondary: #ff9933;
+            --orange-light: #fff0e6;
+            --text-light: #ffffff;
+            --text-dark: #2d3436;
+        }
+
+        body {
+            background: linear-gradient(to bottom, 
+                rgba(255,123,0,0.05),
+                rgba(10,25,47,0.05),
+                rgba(255,123,0,0.05)
+            );
+        }
+
+        .hobbies-hero {
+            background: linear-gradient(135deg, 
+                var(--navy-primary),
+                var(--navy-secondary)
+            );
+            padding: 6rem 0 4rem;
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid var(--orange-primary);
+        }
+
+        .hobbies-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255,123,0,0.2) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(255,123,0,0.2) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-top: 2rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .hobby-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 3rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            position: relative;
+            border-radius: 30px;
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.05),
+                0 0 0 1px rgba(255,123,0,0.1);
+        }
+
+        .hobby-section:nth-child(even) {
+            direction: rtl;
+        }
+
+        .hobby-section:nth-child(even) .hobby-content {
+            direction: ltr;
+        }
+
+        .hobby-section::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 40px;
+            background: linear-gradient(135deg, var(--orange-primary), var(--navy-primary));
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .hobby-content {
+            padding: 2rem;
+        }
+
+        .hobby-title {
+            font-size: 2.5rem;
+            color: var(--navy-primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hobby-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--orange-primary), var(--navy-primary));
+            border-radius: 2px;
+        }
+
+        .hobby-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .hobby-image-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 
+                0 15px 35px rgba(0,0,0,0.15),
+                0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            border: 3px solid var(--orange-primary);
+            width: fit-content;
+            max-width: 100%;
+        }
+
+        .hobby-image-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--orange-primary), var(--navy-primary));
+            border-radius: 0 0 17px 17px;
+        }
+
+        .hobby-image-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 25px 50px rgba(0,0,0,0.2),
+                0 8px 20px rgba(0,0,0,0.15);
+            border: 3px solid var(--dark-orange);
+        }
+
+        .hobby-image {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .hobby-image-container:hover .hobby-image {
+            transform: scale(1.02);
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(to right,
+                transparent,
+                var(--orange-primary),
+                var(--navy-primary),
+                transparent
+            );
+            margin: 6rem auto;
+            max-width: 200px;
+            opacity: 0.3;
+        }
+
+        @media (max-width: 1024px) {
+            .hobby-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hobby-section:nth-child(even) {
+                direction: ltr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hobby-title {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .hobby-text {
+                font-size: 1rem;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Enhanced footer styling */
+        footer {
+            background: var(--navy-primary);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        footer p {
+            margin: 0;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-container">
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="school.html">Education</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="game.html">Game</a></li>
+        </ul>
+    </nav>
+
+    <section class="hobbies-hero">
+        <div class="hero-content fade-in">
+            <h1>My Hobbies & Passions</h1>
+            <p>My hobbies vary quite a bit, and I've always been the type of person who enjoys trying new things rather than sticking to just one. Over the years, I've discovered that the activities I truly love most are snowboarding, hunting, hiking, and playing video games—especially anything related to Pokémon. Each of these hobbies has played a unique role in shaping who I am and continues to give me joy in different ways.</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="hobby-section fade-in">
+            <div class="hobby-content">
+                <h2 class="hobby-title">Snowboarding</h2>
+                <p class="hobby-text">I started snowboarding about three years ago while working at a local ski resort as a rental technician. One night as I was closing up the shop, some of my coworkers convinced me to grab a board and join them on the hill. I was hesitant—having only gone skiing a few times before—but I gave in and decided to give it a shot. On my very first run down the bunny hill, I picked up too much speed, lost control, caught the back edge of my board, and earned my first (and only) concussion. Despite that rough start, I've loved snowboarding ever since!</p>
+                <p class="hobby-text">Every season since then, I make it a goal to hit the slopes at least once a week—and to always wear a helmet. This past season, I even convinced my amazing girlfriend, Maddi, to join me. Now, snowboarding has become one of our favorite things to do together.</p>
+            </div>
+            <div class="hobby-image-container">
+                <img src="images/snowboard2.jpeg" alt="Snowboarding adventures" class="hobby-image">
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section class="hobby-section fade-in">
+            <div class="hobby-content">
+                <h2 class="hobby-title">Hunting</h2>
+                <p class="hobby-text">Every November, my father's side of the family would gather at my grandparents' house to prepare for deer rifle season. There were usually six to eight pairs of us who would spread out across their large property each morning, setting up in stands or ground blinds. After hours of waiting in the cold, those of us who didn't have luck would head back for lunch, while the dedicated few would stay out until dark. These long days are some of my favorite memories from childhood—filled with my grandmother's baked goods and laughter around the table.</p>
+                <p class="hobby-text">Although the big family hunts have faded as everyone's grown older and the property has been sold, I still make time each November to hunt on public land. Hunting continues to hold a special place in my life because it connects me to my family, my childhood, and the traditions we shared. Even though it looks a little different now, I'm proud to keep that tradition alive and hope to one day share it with my own children.</p>
+            </div>
+            <div class="hobby-image-container">
+                <img src="images/Deer.jpeg" alt="Hunting experiences" class="hobby-image">
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section class="hobby-section fade-in">
+            <div class="hobby-content">
+                <h2 class="hobby-title">Hiking</h2>
+                <p class="hobby-text">My love for hiking actually developed from my hunting experiences. My favorite part of hunting was always the walk to and from my stand—the peace, the quiet, and the beauty of nature. Eventually, I realized I didn't need hunting season as an excuse to get outside and explore. Now, hiking has become one of my favorite ways to unwind and clear my mind.</p>
+                <p class="hobby-text">Some of my favorite Minnesota parks are Tettegouche and Jay Cooke State Park, but this past summer, I had the chance to take a road trip through the western United States. I hiked in some incredible places, including Crater Lake in Oregon, Sequoia National Park in California, and Bryce Canyon in Utah. Those parks completely blew me away and deepened my appreciation for the world's natural beauty. I can't wait to continue exploring more of it.</p>
+            </div>
+            <div class="hobby-image-container">
+                <img src="images/hiking.jpeg" alt="Hiking adventures" class="hobby-image">
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section class="hobby-section fade-in">
+            <div class="hobby-content">
+                <h2 class="hobby-title">Pokémon and Gaming</h2>
+                <p class="hobby-text">Another hobby of mine is anything related to Pokémon. I love collecting the cards, playing the games, and even revisiting the anime I grew up with. My connection to Pokémon runs deep because it reminds me of my childhood with my brother. Our grandparents used to buy us matching versions of the games, and we'd spend hours playing side by side, sharing our progress and discoveries.</p>
+                <p class="hobby-text">Although my brother and I aren't as close these days, playing Pokémon always brings back those fond memories and reminds me of the bond we shared growing up.</p>
+            </div>
+            <div class="hobby-image-container">
+                <img src="images/Pokemon.jpeg" alt="Pokemon gaming" class="hobby-image">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Alex Murray. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

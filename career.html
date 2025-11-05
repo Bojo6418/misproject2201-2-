@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Interests - Alex Murray</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Professional Career Theme */
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --accent-blue: #1d4ed8;
+            --light-blue: #dbeafe;
+            --dark-blue: #1e3a8a;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --text-dark: #0f172a;
+            --text-light: #ffffff;
+            --success-green: #059669;
+            --info-cyan: #0891b2;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: linear-gradient(to bottom, 
+                var(--gray-50) 0%,
+                var(--light-blue) 25%,
+                var(--gray-50) 75%,
+                var(--gray-50) 100%
+            );
+            margin: 0;
+        }
+
+        /* Enhanced hero section */
+        .career-hero {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            padding: 8rem 0 5rem;
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--info-cyan);
+        }
+
+        .career-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(8, 145, 178, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(8, 145, 178, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin: 0 0 1.5rem;
+            font-weight: 900;
+            color: var(--text-light);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin: 2rem auto;
+            color: rgba(255,255,255,0.95);
+            max-width: 700px;
+        }
+
+        /* Main content layout */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        /* Introduction section */
+        .intro-section {
+            background: white;
+            border-radius: 25px;
+            padding: 4rem;
+            margin-bottom: 5rem;
+            box-shadow: 
+                0 20px 50px rgba(30, 64, 175, 0.1),
+                0 0 0 1px rgba(30, 64, 175, 0.1);
+            border: 2px solid var(--light-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--info-cyan), var(--success-green));
+        }
+
+        .intro-title {
+            font-size: 2.8rem;
+            color: var(--primary-blue);
+            margin: 0 0 2rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            color: var(--gray-700);
+            text-align: center;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        /* Company cards styling */
+        .companies-section {
+            margin-bottom: 5rem;
+        }
+
+        .companies-title {
+            color: var(--primary-blue);
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .companies-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--gray-700);
+            margin-bottom: 4rem;
+            font-weight: 500;
+        }
+
+        .companies-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .company-card {
+            background: white;
+            border-radius: 25px;
+            padding: 4rem;
+            box-shadow: 
+                0 25px 60px rgba(30, 64, 175, 0.1),
+                0 0 0 1px rgba(30, 64, 175, 0.1);
+            position: relative;
+            border: 3px solid var(--light-blue);
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .company-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 35px 80px rgba(30, 64, 175, 0.15),
+                0 0 0 3px var(--secondary-blue);
+        }
+
+        .company-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--info-cyan), var(--success-green));
+        }
+
+        .company-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid var(--light-blue);
+        }
+
+        .company-name {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin: 0 0 1rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .company-tagline {
+            font-size: 1.2rem;
+            color: var(--gray-700);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        /* Contact section */
+        .contact-section {
+            margin: 3rem 0;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--light-blue) 50%);
+            border-radius: 20px;
+            border: 2px solid var(--gray-200);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        }
+
+        .contact-section h3 {
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 5px solid var(--info-cyan);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+
+        .contact-label {
+            font-weight: 700;
+            color: var(--gray-700);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-value {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .contact-value a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        /* Professional content sections */
+        .professional-section {
+            margin: 3.5rem 0;
+            padding: 3rem;
+            background: linear-gradient(135deg, white 0%, var(--gray-50) 100%);
+            border-radius: 20px;
+            border: 2px solid var(--gray-200);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .professional-section h3 {
+            color: var(--accent-blue);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .professional-content {
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            line-height: 1.9;
+            font-weight: 400;
+        }
+
+        .professional-content p {
+            margin: 0 0 1.5rem 0;
+        }
+
+        .professional-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Resume section */
+        .resume-section {
+            background: white;
+            border-radius: 25px;
+            padding: 4rem;
+            box-shadow: 
+                0 25px 60px rgba(30, 64, 175, 0.1),
+                0 0 0 1px rgba(30, 64, 175, 0.1);
+            border: 3px solid var(--light-blue);
+            position: relative;
+            overflow: hidden;
+            margin-top: 5rem;
+        }
+
+        .resume-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, var(--success-green), var(--info-cyan), var(--primary-blue));
+        }
+
+        .resume-title {
+            font-size: 2.8rem;
+            color: var(--primary-blue);
+            margin: 0 0 2rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .resume-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .resume-info {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .resume-info h3 {
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .resume-info p {
+            font-size: 1.1rem;
+            color: var(--gray-700);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--success-green);
+            color: white;
+            padding: 1.5rem 3rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(5, 150, 105, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .download-button:hover {
+            background: #047857;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.4);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .resume-preview {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 3px solid var(--light-blue);
+        }
+
+        .resume-preview iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
+            display: block;
+        }
+
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 30px rgba(30, 64, 175, 0.1);
+            border-bottom: 3px solid var(--primary-blue);
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            padding: 1.2rem;
+            margin: 0;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .nav-menu a:hover {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .company-name {
+                font-size: 2.2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                align-items: center;
+                padding: 0.8rem;
+                gap: 1rem;
+            }
+
+            .company-card {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .intro-section {
+                padding: 2.5rem;
+            }
+
+            .professional-section {
+                padding: 2rem;
+            }
+
+            .download-button {
+                padding: 1.2rem 2rem;
+                font-size: 1.1rem;
+            }
+
+            .resume-preview iframe {
+                height: 600px;
+            }
+        }
+
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Enhanced footer styling */
+        footer {
+            background: var(--dark-blue);
+            color: var(--text-light);
+            text-align: center;
+            padding: 3rem;
+            margin-top: 5rem;
+            border-top: 5px solid var(--info-cyan);
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        footer p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-container">
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="school.html">Education</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="game.html">Game</a></li>
+        </ul>
+    </nav>
+
+    <section class="career-hero">
+        <div class="hero-content fade-in">
+            <h1>Career Interests</h1>
+            <p>Exploring opportunities in business analytics and data-driven decision making</p>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="intro-section fade-in">
+            <h2 class="intro-title">Career Aspirations</h2>
+            <p class="intro-text">
+                I am passionate about pursuing a career in business analytics where I can leverage data to drive strategic decision-making and create meaningful impact for organizations. My goal is to combine analytical thinking with leadership skills to help companies optimize their operations, improve customer experiences, and achieve sustainable growth through data-driven insights.
+            </p>
+        </div>
+
+        <div class="companies-section fade-in">
+            <h2 class="companies-title">Companies of Interest</h2>
+            <p class="companies-subtitle">
+                Organizations where I am eager to contribute my analytical skills and passion for data-driven solutions
+            </p>
+
+            <div class="companies-grid">
+                <!-- Target Card -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h2 class="company-name">Target</h2>
+                        <p class="company-tagline">Data-Driven Retail Excellence</p>
+                    </div>
+
+                    <div class="contact-section">
+                        <h3>Contact Information</h3>
+                        <div class="contact-grid">
+                            <div class="contact-item">
+                                <div class="contact-label">Contact Person</div>
+                                <div class="contact-value">Jessica Radtke</div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-label">Phone</div>
+                                <div class="contact-value">218-727-8851</div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-label">Email</div>
+                                <div class="contact-value">
+                                    <a href="mailto:Jessica.Radtke@target.com">Jessica.Radtke@target.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-label">Address</div>
+                                <div class="contact-value">1902 Miller Trunk Hwy, Duluth, MN 55811</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="professional-section">
+                        <h3>Why I'm Interested in Target</h3>
+                        <div class="professional-content">
+                            <p>I am excited about pursuing an analytics internship with Target because of the company's exceptional reputation for using data to optimize supply chains and enhance the customer experience. Target's commitment to innovation in retail analytics, combined with their focus on creating personalized shopping experiences through data-driven insights, aligns perfectly with my career aspirations in business analytics.</p>
+                            <p>The opportunity to work with large-scale datasets to identify trends, predict customer behavior, and make strategic recommendations that directly impact millions of customers is incredibly appealing to me. Target's sophisticated analytics infrastructure and commitment to leveraging data for business growth provides an ideal environment for someone passionate about transforming raw data into actionable business intelligence.</p>
+                        </div>
+                    </div>
+
+                    <div class="professional-section">
+                        <h3>My Qualifications</h3>
+                        <div class="professional-content">
+                            <p>I am currently maintaining a 4.0 GPA in my college coursework, demonstrating my commitment to academic excellence and my ability to excel in rigorous analytical environments. I will soon be pursuing a Bachelor of Business Administration in Business Analytics, which will provide me with comprehensive training in statistical analysis, data visualization, predictive modeling, and business intelligence tools.</p>
+                            <p>My educational foundation includes a strong emphasis on data analysis methodologies, quantitative reasoning, and critical thinking skills that are essential for success in modern analytics roles. I have developed proficiency in various analytical frameworks and am well-prepared to apply theoretical knowledge to real-world business challenges.</p>
+                        </div>
+                    </div>
+
+                    <div class="professional-section">
+                        <h3>Skills and Interests Alignment</h3>
+                        <div class="professional-content">
+                            <p>My genuine interest in analyzing complex datasets to create actionable insights aligns perfectly with Target's focus on data-driven decision-making across all aspects of their retail operations. I am particularly drawn to the challenge of translating analytical findings into strategic recommendations that drive business results and improve customer satisfaction.</p>
+                            <p>Additionally, my leadership experience as a varsity football captain and my role as assistant kitchen manager have significantly strengthened my collaboration and communication skills, which are invaluable when working with cross-functional teams including marketing, merchandising, and supply chain professionals. I understand the importance of presenting analytical insights in clear, compelling ways that inspire action and drive organizational success.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Essentia Health Card -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h2 class="company-name">Essentia Health</h2>
+                        <p class="company-tagline">Improving Lives Through Data-Driven Healthcare</p>
+                    </div>
+
+                    <div class="contact-section">
+                        <h3>Contact Information</h3>
+                        <div class="contact-grid">
+                            <div class="contact-item">
+                                <div class="contact-label">Corporate Headquarters</div>
+                                <div class="contact-value">Essentia Health</div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-label">Phone</div>
+                                <div class="contact-value">218-786-8376</div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-label">Website</div>
+                                <div class="contact-value">
+                                    <a href="https://essentiahealth.org" target="_blank">essentiahealth.org</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-label">Address</div>
+                                <div class="contact-value">502 E. Second Street, Duluth, MN 55805</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="professional-section">
+                        <h3>Why I'm Interested in Essentia Health</h3>
+                        <div class="professional-content">
+                            <p>I am deeply drawn to Essentia Health's mission to improve patient outcomes through data-driven solutions and their commitment to using analytics to address complex healthcare challenges. The opportunity to apply my analytical skills in a healthcare context, where insights can directly impact patient care quality and community health outcomes, is highly motivating and personally meaningful to me.</p>
+                            <p>Essentia's innovative approach to healthcare analytics, including their focus on predictive modeling for patient risk assessment, operational efficiency optimization, and evidence-based care delivery, represents the type of impactful work I aspire to pursue. The chance to contribute to an organization that is genuinely making a difference in people's lives through analytical insights is both professionally exciting and personally fulfilling.</p>
+                        </div>
+                    </div>
+
+                    <div class="professional-section">
+                        <h3>My Qualifications</h3>
+                        <div class="professional-content">
+                            <p>I am currently maintaining a 4.0 GPA in my college courses, which demonstrates my strong analytical capabilities and my ability to excel in data-intensive academic environments. I will soon be pursuing a Bachelor of Business Administration in Business Analytics, providing me with the comprehensive training necessary to contribute effectively to sophisticated healthcare analytics projects.</p>
+                            <p>My educational background includes extensive coursework in statistical analysis, data management, and business intelligence, all of which are directly applicable to healthcare analytics roles. I have developed a strong foundation in data analysis methodologies, problem-solving frameworks, and critical thinking skills that are essential for success in healthcare data analysis.</p>
+                        </div>
+                    </div>
+
+                    <div class="professional-section">
+                        <h3>Skills and Interests Alignment</h3>
+                        <div class="professional-content">
+                            <p>My analytical skills and passion for using data to address real-world problems align seamlessly with Essentia Health's focus on improving patient care through data-driven strategies. I am particularly interested in the challenge of translating complex healthcare data into insights that can improve patient outcomes, reduce costs, and enhance operational efficiency.</p>
+                            <p>My leadership and teamwork experience, developed through roles in both athletics and management, equips me to contribute effectively to collaborative projects within the healthcare organization. I understand the importance of working closely with clinicians, administrators, and other stakeholders to ensure that analytical insights are both technically sound and practically applicable to healthcare delivery challenges.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resume Section at Bottom -->
+        <div class="resume-section fade-in">
+            <h2 class="resume-title">My Resume</h2>
+            <div class="resume-content">
+                <div class="resume-info">
+                    <h3>Download My Resume</h3>
+                    <p>For detailed information about my education, experience, and skills, please download my resume below. I am available for internships and full-time opportunities in business analytics.</p>
+                    <a href="files/Resume Final.pdf" download="Alex_Murray_Resume.pdf" class="download-button">
+                        Download Resume
+                    </a>
+                </div>
+                
+                <div class="resume-preview">
+                    <iframe src="files/Resume Final.pdf" title="Alex Murray Resume Preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Alex Murray. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

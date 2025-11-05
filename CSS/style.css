@@ -1,0 +1,306 @@
+/* Modern and clean styling for the personal website */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --hover-color: #2980b9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation styles */
+.nav-container {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background-color: var(--hover-color);
+}
+
+/* Main content styles */
+.main-content {
+    padding: 2rem 0;
+    min-height: calc(100vh - 150px);
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.welcome-section {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.welcome-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Footer styles */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto;
+}
+
+/* Fishing Game Styles */
+.game {
+    text-align: center;
+    padding: 2rem;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    min-width: 120px;
+    border: 2px solid #e3f2fd;
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.card div {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.btn {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 1rem 0;
+}
+
+.btn:hover {
+    background: var(--hover-color);
+}
+
+.btn:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+}
+
+.play-area {
+    background: linear-gradient(to bottom, #87CEEB 0%, #4682B4 100%);
+    border: 3px solid var(--primary-color);
+    border-radius: 20px;
+    height: 400px;
+    width: 80%;
+    max-width: 600px;
+    margin: 2rem auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Fish styles */
+.fish {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    animation: swim 3s linear infinite;
+}
+
+.fish:hover {
+    transform: scale(1.1);
+}
+
+.fish-1 {
+    color: #FFD700;
+    font-size: 2rem;
+}
+
+.fish-2 {
+    color: #FF6347;
+    font-size: 2.5rem;
+}
+
+.fish-3 {
+    color: #32CD32;
+    font-size: 2.2rem;
+}
+
+.fish-4 {
+    color: #FF69B4;
+    font-size: 1.8rem;
+}
+
+@keyframes swim {
+    0% {
+        transform: translateX(-50px);
+    }
+    100% {
+        transform: translateX(calc(100vw + 50px));
+    }
+}
+
+/* Wave animation for lake effect */
+.play-area::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    animation: waves 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes waves {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* Score animations */
+.score-change {
+    animation: scoreFlash 0.5s ease-in-out;
+}
+
+@keyframes scoreFlash {
+    0% { color: var(--secondary-color); }
+    50% { color: #27ae60; }
+    100% { color: var(--secondary-color); }
+}
+
+.miss {
+    animation: missFlash 0.5s ease-in-out;
+}
+
+@keyframes missFlash {
+    0% { color: var(--secondary-color); }
+    50% { color: #e74c3c; }
+    100% { color: var(--secondary-color); }
+}
+
+/* Game over styles */
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.95);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    z-index: 100;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .welcome-section h1 {
+        font-size: 2rem;
+    }
+    
+    .welcome-section p {
+        font-size: 1.1rem;
+    }
+
+    .scoreboard {
+        gap: 1rem;
+    }
+
+    .card {
+        padding: 1rem;
+        min-width: 100px;
+    }
+
+    .card h3 {
+        font-size: 1rem;
+    }
+
+    .card div {
+        font-size: 1.5rem;
+    }
+
+    .play-area {
+        height: 300px;
+        width: 90%;
+    }
+
+    .fish-1, .fish-2, .fish-3, .fish-4 {
+        font-size: 1.5rem;
+    }
+}

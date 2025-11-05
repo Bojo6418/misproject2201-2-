@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Alex Murray</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Modern, sophisticated styling with orange theme */
+        :root {
+            --primary-orange: #ff7b00;
+            --secondary-orange: #ff9933;
+            --dark-orange: #cc6200;
+            --light-orange: #fff0e6;
+            --text-dark: #2d3436;
+            --text-light: #ffffff;
+            --background-light: #fafafa;
+            --navy-blue: #0a192f;
+            --navy-light: #172a45;
+            --navy-accent: #233554;
+        }
+
+        /* Core styles */
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            margin: 0;
+        }
+
+        /* Enhanced hero section */
+        .hero-container {
+            background: linear-gradient(135deg, var(--primary-orange), var(--secondary-orange));
+            padding: 6rem 0 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin: 0 0 1rem;
+            line-height: 1.2;
+            font-weight: 800;
+            background: linear-gradient(120deg, #ffffff, #ffe0cc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .website-intro {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem auto;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+            max-width: 900px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .website-intro::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border-radius: 22px;
+            z-index: -1;
+        }
+
+        .video-section {
+            margin: 4rem auto 0;
+            max-width: 800px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 40px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* Main content layout */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Bio section with photo */
+        .bio-container {
+            display: flex;
+            gap: 4rem;
+            align-items: start;
+            margin: 0 auto 4rem;
+            max-width: 1200px;
+            background: linear-gradient(to bottom, rgba(255, 123, 0, 0.05), transparent);
+            padding: 3rem;
+            border-radius: 30px;
+            position: relative;
+        }
+
+        .bio-text {
+            flex: 1;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .bio-text p {
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            color: var(--text-dark);
+        }
+
+        .bio-text::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 8rem;
+            color: rgba(255, 123, 0, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .profile-photo {
+            width: 400px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 
+                20px 20px 60px rgba(0,0,0,0.1),
+                -20px -20px 60px rgba(255,255,255,0.5),
+                0 0 0 10px rgba(255, 123, 0, 0.1);
+            transition: all 0.3s ease;
+            transform: rotate(-2deg);
+        }
+
+        .profile-photo:hover {
+            transform: rotate(0deg) translateY(-10px);
+            box-shadow: 
+                25px 25px 70px rgba(0,0,0,0.15),
+                -25px -25px 70px rgba(255,255,255,0.6),
+                0 0 0 10px rgba(255, 123, 0, 0.2);
+        }
+
+        /* Enhanced Hobbies section with navy accents */
+        .hobbies-section {
+            margin: 6rem 0;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(to bottom, transparent, rgba(10, 25, 47, 0.03));
+            padding: 4rem 2rem;
+            border-radius: 40px;
+        }
+
+        .hobbies-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 123, 0, 0.2),
+                rgba(10, 25, 47, 0.2),
+                rgba(255, 123, 0, 0.2),
+                transparent);
+        }
+
+        .hobbies-text {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            color: var(--navy-blue);
+            position: relative;
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(120deg, rgba(255, 123, 0, 0.05), rgba(10, 25, 47, 0.05));
+            border-radius: 15px;
+            box-shadow: 
+                0 4px 20px rgba(0,0,0,0.05),
+                0 0 0 1px rgba(255, 123, 0, 0.1);
+        }
+
+        .hobby-photos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin: 3rem auto;
+            max-width: 1400px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hobby-photos::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px solid rgba(10, 25, 47, 0.1);
+            border-radius: 30px;
+            z-index: -1;
+        }
+
+        .hobby-photo-wrapper {
+            position: relative;
+            padding: 1rem;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.1),
+                0 0 0 1px rgba(10, 25, 47, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .hobby-photo-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid transparent;
+            border-radius: 30px;
+            background: linear-gradient(135deg, var(--primary-orange), var(--navy-blue)) border-box;
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) padding-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .hobby-photo-wrapper:hover::before {
+            opacity: 1;
+        }
+
+        .hobby-photo {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .hobby-photo-wrapper:hover {
+            transform: translateY(-15px);
+            box-shadow: 
+                0 30px 60px rgba(0,0,0,0.15),
+                0 0 0 2px rgba(255, 123, 0, 0.1);
+        }
+
+        .hobby-photo-wrapper:hover .hobby-photo {
+            transform: scale(1.02);
+        }
+
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            margin: 0;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background-color: var(--light-orange);
+            color: var(--primary-orange);
+        }
+
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .bio-container {
+                gap: 3rem;
+            }
+
+            .profile-photo {
+                width: 350px;
+                height: 450px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .bio-container {
+                flex-direction: column-reverse;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-photo {
+                width: 300px;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-text p, .website-intro {
+                font-size: 1rem;
+            }
+
+            .hobby-photos {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                align-items: center;
+                padding: 0.5rem;
+            }
+
+            .hobby-photo {
+                height: 300px;
+            }
+        }
+
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-container">
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="school.html">Education</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="game.html">Game</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-container">
+        <div class="hero-content fade-in">
+            <div class="hero-text">
+                <h1>Welcome! I'm Alex Murray</h1>
+                <p>Hi there — I'm excited to share my journey with you!</p>
+            </div>
+            <div class="website-intro">
+                <p>This website offers a closer look into who I am and what drives me — from my favorite hobbies and education to my career goals, resume, and even a fun game my groupmates and I created. I hope you enjoy exploring and getting to know me better!</p>
+            </div>
+            <div class="video-section fade-in">
+                <div class="video-container">
+                    <video id="introVideo" controls preload="metadata" aria-label="Alex Murray Website Introduction Video">
+                        <source src="videos/websiteintro.mp4" type="video/mp4">
+                        <p>Your browser doesn't support video playback. <a href="videos/websiteintro.mp4">Download the video</a> instead.</p>
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <div class="bio-container fade-in">
+            <div class="bio-text">
+                <p>I'm a dedicated student and aspiring business analytics professional with a strong passion for data-driven decision-making, leadership, and continuous growth. I hold an Associate of Arts degree from Fond du Lac Tribal and Community College and am currently completing my pre-business requirements at the University of Minnesota Duluth.</p>
+                <br>
+                <p>After that, I plan to earn my bachelor's degree in Consumer Insights and Analytics from UMD as well. Alongside my academic journey, I work as the Assistant Kitchen Manager at Bricks Pub and Grub in Wrenshall, MN — a role that's strengthened my leadership, teamwork, and management skills.</p>
+            </div>
+            <img src="images/professional-photo.jpeg" alt="Alex Murray" class="profile-photo">
+        </div>
+
+        <div class="hobbies-section fade-in">
+            <p class="hobbies-text">Outside of school and work, I love spending my free time hunting and snowboarding alongside my amazing girlfriend, Maddi. Whether we're tracking game in the woods or carving through fresh snow, these experiences let me unwind, stay active, and enjoy the outdoors. They are a perfect balance of adventure, focus, and shared memories.</p>
+        
+            <div class="hobby-photos">
+                <div class="hobby-photo-wrapper">
+                    <img src="images/grouse.jpeg" alt="Hunting adventures" class="hobby-photo">
+                </div>
+                <div class="hobby-photo-wrapper">
+                    <img src="images/snowboard.jpeg" alt="Snowboarding moments" class="hobby-photo">
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
